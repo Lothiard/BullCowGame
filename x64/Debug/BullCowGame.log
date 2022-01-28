@@ -1,0 +1,4 @@
+﻿  FBullCowGame.cpp
+C:\Users\kenye\Documents\Unreal Projects\Section_02\BullCowGame\FBullCowGame.cpp(9,79): warning C4267: 'return': conversion from 'size_t' to 'int32', possible loss of data
+C:\Users\kenye\Documents\Unreal Projects\Section_02\BullCowGame\FBullCowGame.cpp(42,42): warning C4267: 'initializing': conversion from 'size_t' to 'int32', possible loss of data
+  BullCowGame.vcxproj -> C:\Users\kenye\Documents\Unreal Projects\Section_02\x64\Debug\BullCowGame.exe
