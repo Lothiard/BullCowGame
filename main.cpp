@@ -2,22 +2,26 @@
 * This acts as the view in a MVC pattern, and is responsibe for all user interaction.
 * For game logic see the FBullCowGame class.
 */
+#pragma once
 
 #include <iostream>
 #include <string>
 #include "FBullCowGame.h"
 
+// to make syntax Unreal friendly
 using FText = FString;
 using int32 = int;
 
+// function prototypes as outside a class
 void PrintIntro();
 void PlayGame();
 FText GetValidGuess();
 bool AskToPlayAgain();
 void PrintGameSummary();
 
-FBullCowGame BCGame; // instentiate a new game
+FBullCowGame BCGame; // instentiate a new game, which we re-use across plays
 
+// entry point for our application
 int main() {
 	bool bPlayAgain = false;
 	do {
@@ -25,7 +29,7 @@ int main() {
 		PlayGame();
 		bPlayAgain = AskToPlayAgain();
 	} while (bPlayAgain);
-	return 0;
+	return 0; // exit the application
 }
 
 void PrintIntro() {
@@ -53,7 +57,8 @@ void PrintIntro() {
 
 	return; 
 }
-	
+
+// plays a single game to completion
 void PlayGame() {
 	BCGame.Reset();
 	int32 MaxTries = BCGame.GetMaxTries();
@@ -85,6 +90,7 @@ FText GetValidGuess() {
 		std::cout << " Ird be a tipped : ";
 		getline(std::cin, Guess);
 
+		// check status and give feedback
 		Status = BCGame.CheckGuessValidity(Guess);
 		switch (Status) {
 		case EGuessStatus::Not_Isogram:
