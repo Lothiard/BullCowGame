@@ -1,0 +1,10 @@
+﻿  FBullCowGame.cpp
+C:\Users\kenye\Documents\Unreal Projects\Section_02\BullCowGame\FBullCowGame.cpp(11,79): warning C4267: 'return': conversion from 'size_t' to 'int32', possible loss of data
+C:\Users\kenye\Documents\Unreal Projects\Section_02\BullCowGame\FBullCowGame.cpp(44,42): warning C4267: 'initializing': conversion from 'size_t' to 'int32', possible loss of data
+  main.cpp
+  Generating code
+  29 of 140 functions (20.7%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    6 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  BullCowGame.vcxproj -> C:\Users\kenye\Documents\Unreal Projects\Section_02\x64\Release\BullCowGame.exe
