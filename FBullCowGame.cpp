@@ -13,7 +13,7 @@ bool FBullCowGame::IsGameWon() const { return bGameIsWon; }
 
 void FBullCowGame::Reset() {
 	constexpr int32 MAX_TRIES = 8;
-	const FString HIDDEN_WORD = "auto"; // auto, kocsi, duda, hajo
+	const FString HIDDEN_WORD = "fogas"; // auto, kocsi, duda, hajo
 
 	MyMaxTries = MAX_TRIES;
 	MyHiddenWord = HIDDEN_WORD;

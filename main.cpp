@@ -29,12 +29,29 @@ int main() {
 }
 
 void PrintIntro() {
-	std::cout << "\n\nKoszontelek a Bikak es Bocik cimu jatekban!\n"; 
+	std::cout << "Koszontelek a Bikak es Bocik cimu jatekban!\n";
+	std::cout << std::endl;
+	std::cout << "          }   {         ___ 				"<< std::endl;
+	std::cout << "          (o o)        (o o) 			    "<< std::endl;
+	std::cout << "   /-------\\ /          \\ /-------\\    "<< std::endl;
+	std::cout << "  / | BIKA |O            O| BOCI | \\     "<< std::endl;
+	std::cout << " *  |-,--- |              |------|  *     "<< std::endl;
+	std::cout << "    ^      ^              ^      ^ 		"<< std::endl;
+	std::cout << "                                                 +&-" << std::endl;
+	std::cout << "                                               _.-^-._    .--."  << std::endl;
+	std::cout << "                                            .-'   _   '-. |__|"  << std::endl;
+	std::cout << "           __n__n__                        /     |_|     \\|  |" << std::endl;
+	std::cout << "    .------`-\\00/-'                       /               \\  |"<< std::endl;
+	std::cout << "   /  ##  ## (oo)                        /|     _____     |\\ |" << std::endl;
+	std::cout << "  / \\## __   ./                           |    |==|==|    |  |" << std::endl;
+	std::cout << "     |//YY \\|/        |---|---|---|---|---|    |--|--|    |  |" << std::endl;
+	std::cout << "     |||   |||   \\|/  |---|---|---|---|---|    |==|==|    |  |" << std::endl;
+	std::cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"  << std::endl;
 	std::cout << "Ki tudod talalni a(z) " << BCGame.GetHiddenWordLength();
 	std::cout << " betus szot amire gondoltam?\n";
 	std::cout << std::endl;
 
-	return;
+	return; 
 }
 	
 void PlayGame() {
@@ -50,9 +67,7 @@ void PlayGame() {
 		FBullCowCount BullCowCount = BCGame.SubmitValidGuess(Guess);
 
 		std::cout << "Bikak = " << BullCowCount.Bulls;
-		std::cout << ". Bocik = " << BullCowCount.Cows << std::endl;
-
-		std::cout << "A tipped: " << Guess << "\n\n";
+		std::cout << ". Bocik = " << BullCowCount.Cows << "\n\n";
 	}
 
 	PrintGameSummary();
@@ -66,25 +81,25 @@ FText GetValidGuess() {
 	do {
 		// get a guess from the player
 		int32 CurrentTry = BCGame.GetCurrentTry();
-		std::cout << CurrentTry << ". probalkozas. Ird be a tipped: ";
+		std::cout << CurrentTry << ". probalkozas a " << BCGame.GetMaxTries() << "-bol.";
+		std::cout << " Ird be a tipped : ";
 		getline(std::cin, Guess);
 
 		Status = BCGame.CheckGuessValidity(Guess);
 		switch (Status) {
 		case EGuessStatus::Not_Isogram:
-			std::cout << "Kerlek egy olyan szot irj amiben nem ismetlodnek a betuk.\n";
+			std::cout << "Kerlek egy olyan szot irj amiben nem ismetlodnek a betuk.\n\n";
 			break;
 		case EGuessStatus::Not_Lowercase:
-			std::cout << "Kerlek kisbetukkel irj.\n";
+			std::cout << "Kerlek kisbetukkel irj.\n\n";
 			break;
 		case EGuessStatus::Wrong_Length:
-			std::cout << "Kerlek irj egy " << BCGame.GetHiddenWordLength() << " betus szot.\n";
+			std::cout << "Kerlek irj egy " << BCGame.GetHiddenWordLength() << " betus szot.\n\n";
 			break;
 		default:
 			// assume the guess is valid
 			break;
 		}
-		std::cout << std::endl;
 	} while (Status != EGuessStatus::OK); // keep looping until we get no errors
 	return Guess;
 }
